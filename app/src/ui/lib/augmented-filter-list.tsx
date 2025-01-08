@@ -433,7 +433,8 @@ export class AugmentedSectionFilterList<
       return this.props.renderNoItems()
     } else {
       const firstSelectedRow = this.state.selectedRows.at(-1)
-
+      console.log("Augmented State:")
+      console.log(this.state)
       return (
         <SectionList
           id={this.props.id}
