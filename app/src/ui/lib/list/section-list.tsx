@@ -1383,9 +1383,14 @@ export class SectionList extends React.Component<
   }
 
   private get totalHeight() {
+    // Exit early if no rows present
+    if (this.props.rowCount.length === 0) {
+      return 0
+    }
+
     return this.props.rowCount.reduce((total, _count, section) => {
       return total + this.getSectionHeight(section)
-    })
+    }, 0)
   }
 
   private sectionHeight = ({ index }: Index) => {
