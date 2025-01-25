@@ -770,6 +770,16 @@ function createWindow() {
         loadExtensionOptions: { allowFileAccess: true },
       })
       console.log('Added Extensions: "React Developer Tools", "axe DevTools"')
+
+      // Reload the window to attach React Developer Tools
+      // See https://github.com/facebook/react/issues/27749
+      // TODO: Remove when/if upstream is fixed
+      window.onDidLoad(() => {
+        setTimeout(() => {
+          window.reload()
+          console.log('Reloaded window to attach React Developer Tools.')
+        }, 1000)
+      })
     } catch (e) {
       console.log('An error occurred while loading extensions: ', e)
     }

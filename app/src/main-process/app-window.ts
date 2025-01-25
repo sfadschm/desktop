@@ -252,6 +252,11 @@ export class AppWindow {
     this.window.restore()
   }
 
+  /** TODO: Remove if https://github.com/facebook/react/issues/27749 is fixed */
+  public reload() {
+    this.window.reload()
+  }
+
   public isFocused() {
     return this.window.isFocused()
   }
